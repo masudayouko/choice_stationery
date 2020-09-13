@@ -20,11 +20,11 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
        redirect_to user_path(@user), notice: 'User was successfully updated.'
-    else 
+    else
       render action: :edit
     end
   end
-  
+
 
   def get_user
     @user = User.find(params[:id])
@@ -34,5 +34,5 @@ private
   def user_params
   	params.require(:user).permit(:profile_image,:name,:introduction)
   end
-  
+
 end

@@ -27,6 +27,11 @@ table {
   border-radius: 10px;
 }
 
+.item_photos img {
+  width: 100%;
+  height: 190px;
+}
+
 .form_box {
   background-color: grayscale($color: #fafafa);
   border-radius: 10px;
@@ -38,9 +43,9 @@ table {
 
 .user_name{
   padding :0.8em 0.8em 0 1em;
- }
+}
 
- i {
+i {
   margin :0.2em;
 }
 /*-- ここまで --*/
@@ -58,6 +63,11 @@ table {
   background-color: desaturate($color: #e8c3c3, $amount: 0);
   border-radius: 10px;
 }
+
+.detail_photo img {
+  width: 100%;
+  height: 350px;
+}
 /*-- ここまで --*/
 
 /*-- rankingsページ --*/
@@ -69,16 +79,18 @@ h1 {
 .ranking_form {
   background-color:  rgb(250, 245, 225);
   border-radius: 10px;
-  margin-bottom: 4em; 
+  margin-bottom: 4em;
   border: solid 2px #373738;
   font-size: 100%;
   color:grayscale($color: #c25613) ;
-  height:530px;
-  width: 100%; 
+  height: 530px;
+  width: 100%;
 }
 
-.top3_photo {
-padding:0 0 0.5em 1.5em;
+.top3_photo img {
+padding:0 1.5em 0em 1.5em;
+height: 220px;
+width: 100%;
 }
 /*-- ここまで --*/
 
@@ -88,12 +100,13 @@ padding:0 0 0.5em 1.5em;
   background-color: rgb(233, 221, 214);
   padding: 3%;
   border-radius: 10px;
+  margin-bottom: 40px;
 }
 
 .search_results {
   background-color: grayscale($color: #fafafa);
   border-radius: 10px;
-  margin: 3%; 
+  margin: 3%;
   border: solid 1px #373738;
   padding: 3%;
 }

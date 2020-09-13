@@ -1,34 +1,34 @@
 <h1> Ranking TOP 9</h1>
 <div class= "row">
-	<div class="col-xs-12">
+	<div class = "col-md-12 col-sm-12 col-xs-12">
 		<% @all_ranks.each.with_index(0) do |item, i| %>
 
- 		<div class = "col-xs-4">
+ 		<div class = "col-md-4 col-sm-6 col-xs-12">
     		<div class = "ranking_form">
 
 					<h3>第<%= i += 1%>位</h3>
 					<table class = "table">
 							<div class = "top3_photo">
-					        		<%= link_to item_path(item.id) do %>
-											<%= attachment_image_tag item, :image, :fill, 300, 220, format: "png" %>
-											<% end %>
+					        	<%= link_to item_path(item.id) do %>
+								<%= attachment_image_tag item, :image, :fill, 300, 220, format: "png" %>
+								<% end %>
 							</div>
 
 									<% if item.favorited_by?(current_user) %>
-												<%= link_to item_favorites_path(item), method: :delete do %>
-													<span class = "fa fa-heart" style = "color: red; margin-left: 6%;"></span>
-													<%= item.favorites.count %>
-												<% end %>
+											<%= link_to item_favorites_path(item), method: :delete do %>
+											<span class = "fa fa-heart" style = "color: red; margin-left: 6%;"></span>
+											<%= item.favorites.count %>
+											<% end %>
 									<% else %>
-												<%= link_to item_favorites_path(item), method: :post do %>
-													<span class = "fa fa-heart" style = "margin-left: 6%;"></span>
-													<%= item.favorites.count %>
-												<% end %>
+											<%= link_to item_favorites_path(item), method: :post do %>
+											<span class = "fa fa-heart" style = "margin-left: 6%;"></span>
+											<%= item.favorites.count %>
+											<% end %>
 									<% end %>
 
 									<i class="fa fa-comment"></i>
-											<%= item.item_comments.count %>
-											<% item.item_comments.count %>
+									<%= item.item_comments.count %>
+									<% item.item_comments.count %>
 
 								<tbody>
 									<tr>
@@ -45,10 +45,8 @@
 									</tr>
 								</tbody>
 					</table>
-
- 				</div>
-	  </div>
- 
+ 			</div>
+	  	</div>
 		<% end %>
 	</div>
 </div>

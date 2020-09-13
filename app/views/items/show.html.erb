@@ -1,25 +1,24 @@
 <div class = "row">
 		<%= render 'users/profile', user:@item.user %>
-		<div class = "col-xs-6">
+		<div class = "col-md-6 col-xs-12">
 				<div class = "item_photo_form">
 					<div class="item_<%= @item.id %>">
 				  		<%= render 'detail', item: @item %>
 					</div>
 				</div>
 		</div>
-		<div class = "col-xs-3">
-				<%= form_with model:[@item,@item_comment], data: {remote:true} do |f| %>
-					<div class = "comment-form">
-           	<%= f.text_area :comment, rows:'4', class: "form-control",placeholder: " Comment here ..." %>
-					</div>
-            <%= f.submit "post", class: "btn-sm default pull-right" %><br>
-        <% end %>
-
-				<div class = "comment">
-
-					<table class = "table comment_<%= @item.id %>">
-						<%= render 'comment', item_comments: @item.item_comments %>	
-					</table>
+		<div class = "col-md-3 col-xs-10">
+			<%= form_with model:[@item,@item_comment], data: {remote:true} do |f| %>
+				<div class = "comment-form">
+           		<%= f.text_area :comment, rows:'4', class: "form-control",placeholder: " Comment here ..." %>
 				</div>
-    </div>
+            	<%= f.submit "post", class: "btn-sm default pull-right" %><br>
+        	<% end %>
+
+			<div class = "comment">
+				<table class = "table comment_<%= @item.id %>">
+				<%= render 'comment', item_comments: @item.item_comments %>
+				</table>
+			</div>
+    	</div>
 </div>
