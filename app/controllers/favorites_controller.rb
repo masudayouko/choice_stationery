@@ -14,4 +14,13 @@ class FavoritesController < ApplicationController
       favorite.destroy
       redirect_to request.referer
   end
+  private
+  def redirect
+    case params [:redirect_id].to_i
+    when 0
+      redirect_to items_path
+    when 1
+      redirect_to item_path(@item)
+    end
+  end
 end

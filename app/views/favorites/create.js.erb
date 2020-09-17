@@ -1,0 +1,5 @@
+if (location.pathname == '/items') {
+  $(".item_<%= @item.id %>").html("<%= j(render 'items/index',  item: @item ) %>")
+} else {
+  $(".item_<%= @item.id %>").html("<%= j(render 'items/detail',  item: @item ) %>")
+}
