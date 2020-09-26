@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :get_user, only:[:show, :edit, :update]
+  before_action :get_user, only:[:show, :edit, :update, :destroy]
+  before_action :admin_user,only: :destroy
 
   def show
     @items = @user.items
@@ -25,6 +26,11 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    User.find(params[:id]).destroy
+    redirect_to users_path,notice: 'User was successfully deleted.'
+  end
+
 
   def get_user
     @user = User.find(params[:id])
@@ -32,7 +38,19 @@ class UsersController < ApplicationController
 
 private
   def user_params
-  	params.require(:user).permit(:profile_image,:name,:introduction)
+  	params.require(:user).permit(
+      :profile_image,
+      :name,
+      :introduction,
+      :email,
+      :password,
+      :password_confirmation
+    )
+  end
+
+  #管理者かどうかを判断
+  def admin_user
+    redirect_to(root_path)unless current_user.admin?
   end
 
 end

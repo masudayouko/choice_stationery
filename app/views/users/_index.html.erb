@@ -14,6 +14,11 @@
                         <% end %>
                       <% end %>
                       </td>
+                      <td>
+                      <% if current_user.admin? %>
+                        <%= link_to "delete",user,method: :delete,data:{confirm:"you sure?"} %>
+                      <%end%>
+                      </td>
                       <td><%= link_to " Show ",user_path(user.id)%></td>
                   </tr>
                 <% end %>
